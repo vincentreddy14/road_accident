@@ -9,31 +9,32 @@ from twilio.rest import Client
 
 app = Flask(__name__)
 model = joblib.load('model.sav')
-# Twilio account credentials
-account_sid = "ACad2ca85a96cf98c15a63af88b13ec0c9"
-auth_token = "42a9784482df2adbf3eccbdf6654ef41"
-twilio_phone_number = "+13027516269"  # Your Twilio phone number
-verified_recipient_number = "+919553495889"  # Your verified recipient number
 
-# Initialize Twilio client
+
+# account_sid = "ACad2ca85a96cf98c15a63af88b13ec0c9"
+# auth_token = "42a9784482df2adbf3eccbdf6654ef41"
+# twilio_phone_number = "+13027516269" 
+# verified_recipient_number = "+919553495889" 
+
+
 client = Client(account_sid, auth_token)
 
 
 
-def send_sms(data):
-    account_sid = "AC48b8442ca1a1bdfb07a788e334e53412"
-    auth_token = "c1f8caf3ec0ff44602197862454e65e2"
-    client = Client(account_sid, auth_token)
+# def send_sms(data):
+#     account_sid = "AC48b8442ca1a1bdfb07a788e334e53412"
+#     auth_token = "c1f8caf3ec0ff44602197862454e65e2"
+#     client = Client(account_sid, auth_token)
 
-    from_number = "+13027516269"  # Your Twilio phone number
-    verified_number = "+919553495889"
-    message_body=data
+#     from_number = "+13027516269"  
+#     verified_number = "+919553495889"
+#     message_body=data
 
-    try:
-        message = client.messages.create(body=message_body, from_="+13027516269", to="+919553495889")
-        print("Message sent successfully! SID")
-    except Exception as e:
-        print("Failed to send message:", str(e))
+#     try:
+#         message = client.messages.create(body=message_body, from_="+13027516269", to="+919553495889")
+#         print("Message sent successfully! SID")
+#     except Exception as e:
+#         print("Failed to send message:", str(e))
 
 def cal(ip):
     input_data = dict(ip)

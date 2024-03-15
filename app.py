@@ -5,7 +5,7 @@ import numpy as np
 import urllib.request
 import urllib.parse
 import os
-from twilio.rest import Client
+# from twilio.rest import Client
 
 app = Flask(__name__)
 model = joblib.load('model.sav')
@@ -35,6 +35,8 @@ client = Client(account_sid, auth_token)
 #         print("Message sent successfully! SID")
 #     except Exception as e:
 #         print("Failed to send message:", str(e))
+
+
 
 def cal(ip):
     input_data = dict(ip)
@@ -81,6 +83,9 @@ def map():
     return render_template('map.html')
 
 @app.route('/', methods=['POST'])
+
+
+
 def get():
     a= cal(request.form)
     if a==1:
@@ -90,6 +95,10 @@ def get():
     else:
         send_sms("Your Accident Severity Prediction was 'Slight'. ") 
     return a
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
